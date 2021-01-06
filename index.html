@@ -68,19 +68,19 @@
 		while(position < i){
     
     	let letter =  string[position].toUpperCase();
-      let symbol = this.symbols[letter];
-       alert( this.symbols[letter])
+      let symbol = vibromorze.symbols[letter];
+       alert( vibromorze.symbols[letter])
       if(symbol == "SPACE" ){
-      	arr1.push(this.pauseWords);						//	pause between words
+      	arr1.push(vibromorze.pauseWords);						//	pause between words
         continue;
       }
       let cnt = symbol.lenght
       for(k=0;k<cnt;k++){
       	(symbol[k] == '.')? arr1.push(this.dot) : arr1.push(this.line);	
-        arr1.push(this.pauseElement);
+        arr1.push(vibromorze.pauseElement);
       } 
 	alert(symbol)
-      arr1.push(this.dot * 2);								// Thats no right
+      arr1.push(vibromorze.dot * 2);								// Thats no right
 			position++;
 		console.log(arr1)
 		}
