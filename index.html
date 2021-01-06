@@ -60,6 +60,7 @@
   } 
   
   vibromorze.prototype.play = function( string ){
+	 
 		var i = string.lenght;
 		var position = 0;
     var arr1 = new Array();
@@ -68,7 +69,7 @@
     
     	let letter =  string[position].toUpperCase();
       let symbol = this.symbols[letter];
-      
+       alert( this.symbols[letter])
       if(symbol == "SPACE" ){
       	arr1.push(this.pauseWords);						//	pause between words
         continue;
