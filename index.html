@@ -61,7 +61,7 @@
   
   vibromorze.prototype.play = function( string ){
 	 
-		var i = string.lenght;
+		var i = string.replace( /\s/g, '' ).length;
 	  console.log(  string)
 		var position = 0;
     var arr1 = new Array();
