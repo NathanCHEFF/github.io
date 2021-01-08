@@ -75,13 +75,13 @@
       	arr1.push(this.pauseWords);						//	pause between words
         continue;
       }
-      let cnt = symbol.lenght
+      let cnt = symbol..replace( /\s/g, '' ).lenght
       console.log(  cnt )
       for(k=0;k<cnt;k++){
       	(symbol[k] == '.')? arr1.push(this.dot) : arr1.push(this.line);	
         arr1.push(vibromorze.pauseElement);
       } 
-      alert(symbol)
+      //alert(symbol)
       arr1.push(this.dot * 2);								// Thats no right
 			position++;
 		console.log(arr1)
