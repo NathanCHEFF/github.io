@@ -6,57 +6,58 @@
   <title>JS Bin</title>
 </head> 
 <body> 
+	
 <script>
-  (function(){
-	function vibromorze(){ 
-  		this.symbols = {
-      'A': ".-",
-      'B': "-...",
-      'C': "-.-.",
-      'D': "-..",
-      'E': ".",
-      'F': "..-.",
-      'G': "--.",
-      'H': "....",
-      'I': "..",
-      'J': ".---",
-      'K': "-.-",
-      'L': ".-..",
-      'M': "--",
-      'N': "-.",
-      'O': "---",
-      'P': ".--.",
-      'Q': "--.-",
-      'R': ".-.",
-      'S': "...",
-      'T': "-",
-      'U': "..-",
-      'V': "...-",
-      'W': ".--",
-      'X': "-..-",
-      'Y': "-.--",
-      'Z': "--..",
- 
-      '1': ".----",
-      '2': "..---",
-      '3': "...--",
-      '4': "....-",
-      '5': ".....",
-      '6': "-....",
-      '7': "--...",
-      '8': "---..",
-      '9': "----.",
-      '0': "-----",
-      ' ': "SPACE"
-    };
-     
-    this.dot = 300;
-    this.line = 3 * this.dot;
+ (function(){
+    function vibromorze(){ 
+  	  this.symbols = {
+          'A': ".-",
+          'B': "-...",
+          'C': "-.-.",
+          'D': "-..",
+          'E': ".",
+          'F': "..-.",
+          'G': "--.",
+          'H': "....",
+          'I': "..",
+          'J': ".---",
+          'K': "-.-",
+          'L': ".-..",
+          'M': "--",
+          'N': "-.",
+          'O': "---",
+          'P': ".--.",
+          'Q': "--.-",
+          'R': ".-.",
+          'S': "...",
+          'T': "-",
+          'U': "..-",
+          'V': "...-",
+          'W': ".--",
+          'X': "-..-",
+          'Y': "-.--",
+          'Z': "--..",
 
-    this.pauseElement = ( 1 * this.dot );			//	pause between element of letter
-    this.pauseletter  = ( 3 * this.dot );			//	pause between letters 
-    this.pauseWords   = ( 7 * this.dot );			//	pause between words
-  	return this
+          '1': ".----",
+          '2': "..---",
+          '3': "...--",
+          '4': "....-",
+          '5': ".....",
+          '6': "-....",
+          '7': "--...",
+          '8': "---..",
+          '9': "----.",
+          '0': "-----",
+          ' ': "SPACE"
+        };
+     
+        this.dot = 300;
+        this.line = 3 * this.dot;
+
+        this.pauseElement = ( 1 * this.dot );			//	pause between element of letter
+        this.pauseletter  = ( 3 * this.dot );			//	pause between letters 
+        this.pauseWords   = ( 7 * this.dot );			//	pause between words
+        return this
   } 
   
   vibromorze.prototype.play = function( string ){
@@ -64,7 +65,7 @@
     var i = string.split('').length;
 	  
 	var position = 0;
-    var arr1 = new Array();
+    var array_play = new Array();
 
     while(position < i){
     
@@ -72,26 +73,25 @@
       let symbol = this.symbols[letter];
        
       if(symbol == "SPACE" ){ 
-      	arr1.push(this.pauseWords);						//	pause between words
+      	array_play.push(this.pauseWords);						//	pause between words
         continue;
       }
       let cnt = symbol.split('').length
       console.log(  symbol.split('').length, symbol.split('') )
       for(k=0;k<cnt;k++){
-      	(symbol[k] == '.')? arr1.push(this.dot) : arr1.push(this.line);	
+      	(symbol[k] == '.')? array_play.push(this.dot) : array_play.push(this.line);	
         arr1.push(this.pauseElement);                   // pause between element
       } 
       //alert(symbol)
-      //arr1.push(this.dot * 2);							// Thats no right // pause between letter
+      array_play.push(0);							            // push null vibration for wait
+      array_play.push(this.dot * 2);							// Thats no right // pause between letter
       position++;
-	} 
-	document.getElementById('cl').innerHTML = arr1.toString();
-	console.log(arr1)
-    window.navigator.vibrate( arr1 );
+	}
+    window.navigator.vibrate( array_play );
   }
   
   window.vibromorze = vibromorze;
-	  return vibromorze;
+  return vibromorze;
 })();
   
   </script>
