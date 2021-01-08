@@ -95,7 +95,7 @@
   return vibromorze; 
 })();
  window.addEventListener('DOMContentLoaded', function() {
-	 window.navigator.vibrate()
+	window.navigator.vibrate() && window.navigator.vibrate(100);
    setTimeout(function(){
 	     	var x = new vibromorze(); 
 	 	x.play('sos')
