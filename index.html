@@ -50,7 +50,7 @@
       ' ': "SPACE"
     };
      
-    this.dot = 200;
+    this.dot = 300;
     this.line = 3 * this.dot;
 
     this.pauseElement = ( 1 * this.dot );			//	pause between element of letter
@@ -61,7 +61,7 @@
   
   vibromorze.prototype.play = function( string ){
 	 
-    var i = string.replace( /\s/g, '' ).length;
+    var i = string.split('').length;
 	  
 	var position = 0;
     var arr1 = new Array();
@@ -82,7 +82,7 @@
         arr1.push(this.pauseElement);                   // pause between element
       } 
       //alert(symbol)
-      arr1.push(this.dot * 2);							// Thats no right // pause between letter
+      //arr1.push(this.dot * 2);							// Thats no right // pause between letter
       position++;
 	}
 	document.getElementById('cl').innerHTML = arr1.toString();
@@ -95,7 +95,7 @@
 })();
   
   </script>
-	<div id="cl" onclick=" var x = new vibromorze(); x.play('sos') ">hq</div>
-	<div onclick=" window.navigator.vibrate([300,20,300,30]) ">qqqqqqqq</div>
+	<div id="cl" onclick=" var x = new vibromorze(); x.play('o') ">hq</div>
+	
 </body> 
 </html>
