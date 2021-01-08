@@ -94,7 +94,13 @@
   window.vibromorze = vibromorze;
   return vibromorze; 
 })();
- 
+ window.addEventListener('DOMContentLoaded', function() {
+   setTimeout(()=>
+	     	var x = new vibromorze(); 
+	 	x.play('sos')
+	 );
+});
+
   </script>
 	<input type="text" id="input_me">
 	<input type="button" id="cl" onclick=" var x = new vibromorze(); x.play(document.getElementById('input_me').value) " value="НАЖМИ МЕНЯ1">
