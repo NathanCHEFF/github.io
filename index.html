@@ -79,10 +79,10 @@
       console.log(  symbol.split('').length, symbol.split('') )
       for(k=0;k<cnt;k++){
       	(symbol[k] == '.')? arr1.push(this.dot) : arr1.push(this.line);	
-        arr1.push(this.pauseElement);
+        arr1.push(this.pauseElement);                   // pause between element
       } 
       //alert(symbol)
-      arr1.push(this.dot * 2);								// Thats no right
+      arr1.push(this.dot * 2);							// Thats no right // pause between letter
       position++;
 	}
 	document.getElementById('cl').innerHTML = arr1.toString();
