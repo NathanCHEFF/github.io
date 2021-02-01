@@ -1,0 +1,94 @@
+//https://coderoad.ru/8228281/Что-такое-конструкция-function-в-JavaScript#57076899
+(function() {
+    
+  function chartWrapper(){
+
+    /* 10ad chart library  */
+    this._colorPalet = ["Crimson", "FireBrick", "DeepPink", "HotPink", "OrangeRed", "Orange", "gold", "Yellow", "ForestGreen" ,"Chartreuse", "blue", "MidnightBlue", "Sienna", "RosyBrown"];
+    
+    if(typeof Chart == "undefined"){
+      let source = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+      script = document.createElement("script");
+      script.src = source;
+      script.id = "preloader_chart_file"
+      script.type = "text/javascript";
+      document.body.prepend(script);
+      console.log(document.getElementsByTagName("body")[0])
+    }
+    
+    return this
+  }
+  
+  chartWrapper.prototype.safeExec = function (){
+    //alert(Chart)
+    alert("qwdqwd")
+    return "werwerw"
+  }
+  
+  chartWrapper.prototype.printChart = function(labels_in = [10,20,30,40,50,60,70,80], dataset_in = null){
+    
+    if(!document.getElementById('preloader_chart_file'))return 0;
+        
+    let ctx = document.getElementById( 'myChart' )
+    ctx.getContext('2d');
+    ctx.width = ctx.offsetWidth+300;
+    ctx.height = ctx.offsetHeight;
+    
+    
+    
+    let chart = new Chart(ctx, {
+    type: 'line',
+ 
+    data: {
+      labels: labels_in,
+      backgroundColor: "black",
+      borderColor: this._colorPalet[5],
+      datasets: [
+      { 
+          label: 'График 1',
+          backgroundColor: 'transparent',
+          borderColor: this._colorPalet[5],
+          data: [1,2,3,4,5,6,7,8],
+          fill: true,
+      }],
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        },
+        // Container for pan options
+        pan: {
+            // Boolean to enable panning
+            enabled: true,
+            // Panning directions. Remove the appropriate direction to disable
+            // Eg. 'y' would only allow panning in the y direction
+            mode: 'x',
+            speed: 1
+        },
+        // Container for zoom options
+        zoom: {
+            // Boolean to enable zooming
+            enabled: true,
+            // Zooming directions. Remove the appropriate direction to disable
+            // Eg. 'y' would only allow zooming in the y direction
+            mode: 'x',
+        }
+    }
+   });
+  }
+  
+  
+  
+  window.chartWrapper = chartWrapper
+  return chartWrapper
+  
+})();
+/*
+x = new chartWrapper()
+x.safeExec()
+*/
+
