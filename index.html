@@ -130,8 +130,8 @@
         return this
   }
 
-  vibromorze.prototype.translate = function( string ){
-    return word.split('').map(function (char) {
+  vibromorze.prototype.translate = function( letter ){
+    return letter.split('').map(function (char) {
       return this.translater[char] || char;
     }).join("");
   }
@@ -156,7 +156,7 @@
         }
       }
 
-  
+
 
       if(symbol == "SPACE" ){
         array_play.push(this.pauseWords);						//	pause between words
@@ -180,7 +180,6 @@
   window.vibromorze = vibromorze;
   return vibromorze;
 })();
-
 
   </script>
 	<input type="text" id="input_me">
