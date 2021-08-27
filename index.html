@@ -137,7 +137,7 @@
   }
 
   vibromorze.prototype.translateSymbol = function( letter ){
-    return this.translater[letter]
+    return this.symbols[ this.translater[letter] ]
   }
 
   vibromorze.prototype.play = function( string ){
