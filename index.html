@@ -136,6 +136,10 @@
     }).join("");
   }
 
+  vibromorze.prototype.translateSymbol = function( letter ){
+    return translater[letter]
+  }
+
   vibromorze.prototype.play = function( string ){
 
     var i = string.split('').length;
@@ -150,9 +154,9 @@
 
       if(symbol == undefined){
         if(this.translate(symbol)){
-          symbol = this.translate(symbol)
+          symbol = this.translateSymbol(symbol)
         } else {
-          alert("не поддерживается")
+          alert("symbol not found, or lang != eng|ru")
         }
       }
 
@@ -180,6 +184,7 @@
   window.vibromorze = vibromorze;
   return vibromorze;
 })();
+
 
   </script>
 	<input type="text" id="input_me">
