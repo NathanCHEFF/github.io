@@ -153,8 +153,8 @@
       let symbol = this.symbols[letter];
 
       if(symbol == undefined){
-        if(this.translateSymbol(symbol)){
-          symbol = this.translateSymbol(symbol)
+        if(this.translateSymbol( letter ){
+          symbol = this.translateSymbol( letter )
         } else {
           alert("symbol not found, or lang != eng|ru")
         }
@@ -184,6 +184,7 @@
   window.vibromorze = vibromorze;
   return vibromorze;
 })();
+
   </script>
 	<input type="text" id="input_me">
 	<input type="button" id="cl" onclick=" var x = new vibromorze(); x.play(document.getElementById('input_me').value) " value="НАЖМИ МЕНЯ1">
