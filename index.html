@@ -135,6 +135,7 @@
   vibromorze.prototype.translate = function( letter ){
     return letter.split('').map(function (char) {
       //return this.translater[char] || char;
+	    alert(char)
       return this.translater[char];
     }).join("");
   }
