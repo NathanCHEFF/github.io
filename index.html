@@ -120,6 +120,8 @@
           '0': "-----",
           ' ': "SPACE"
         };
+	    
+	this.cyrillicPattern = /[а-яА-ЯЁё]/;   
 
         this.dot = 300;
         this.line = 3 * this.dot;
@@ -135,6 +137,9 @@
       return this.translater[char] || char;
     }).join("");
   }
+  vibromorze.prototype.ifCirilic = function(str){
+    return cyrillicPattern.test()
+  }
 
   vibromorze.prototype.translateSymbol = function( letter ){
 	  console.log("letter"+letter+"_symbol2"+symbol+"_sumb"+this.translater[letter])  
@@ -142,6 +147,8 @@
   }
 
   vibromorze.prototype.play = function( string ){
+	  
+    if( this.ifCirilic(string) )string = this.translate(string)
 
     var i = string.split('').length;
 
