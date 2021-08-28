@@ -134,7 +134,8 @@
 
   vibromorze.prototype.translate = function( letter ){
     return letter.split('').map(function (char) {
-      return this.translater[char] || char;
+      //return this.translater[char] || char;
+      return this.translater[char];
     }).join("");
   }
   vibromorze.prototype.ifCirilic = function(str){
@@ -162,10 +163,6 @@
       
 
       console.log("letter"+letter+"_symbol"+symbol)   
-      if(symbol == undefined){
-      }
-
-
 
       if(symbol == "SPACE" ){
         array_play.push(this.pauseWords);						//	pause between words
