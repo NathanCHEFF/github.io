@@ -133,10 +133,9 @@
   }
 
   vibromorze.prototype.translate = function( letter ){
+  var dump = this.translater
     return letter.split('').map(function (char) {
-      //return this.translater[char] || char;
-	    alert( this.translater[char])
-      return this.translater[char];
+      return dump[char] || char;
     }).join("");
   }
   vibromorze.prototype.ifCirilic = function(str){
@@ -144,7 +143,7 @@
   }
 
   vibromorze.prototype.translateSymbol = function( letter ){
-    console.log("letter"+letter+"_symbol2"+symbol+"_sumb"+this.translater[letter])  
+    //console.log("letter"+letter+"_symbol2"+symbol+"_sumb"+this.translater[letter])  
     return this.translater[letter] 
   }
 
@@ -163,7 +162,7 @@
       let symbol = this.symbols[letter];
       
 
-      console.log("letter"+letter+"_symbol"+symbol)   
+      //console.log("letter"+letter+"_symbol"+symbol)   
 
       if(symbol == "SPACE" ){
         array_play.push(this.pauseWords);						//	pause between words
