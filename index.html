@@ -135,7 +135,7 @@
   vibromorze.prototype.translate = function( letter ){
     return letter.split('').map(function (char) {
       //return this.translater[char] || char;
-	    alert(char)
+	    alert( this.translater[char])
       return this.translater[char];
     }).join("");
   }
@@ -144,7 +144,7 @@
   }
 
   vibromorze.prototype.translateSymbol = function( letter ){
-	  console.log("letter"+letter+"_symbol2"+symbol+"_sumb"+this.translater[letter])  
+    console.log("letter"+letter+"_symbol2"+symbol+"_sumb"+this.translater[letter])  
     return this.translater[letter] 
   }
 
