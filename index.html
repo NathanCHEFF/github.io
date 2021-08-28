@@ -138,7 +138,7 @@
     }).join("");
   }
   vibromorze.prototype.ifCirilic = function(str){
-    return cyrillicPattern.test()
+    return this.cyrillicPattern.test(str)
   }
 
   vibromorze.prototype.translateSymbol = function( letter ){
