@@ -3,9 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
+  <title></title>
+  <script>
+  
+  function loadfunct(){
+    
+  }
+  
+  function onclicker(radioObj){
+    var summ = document.getElementById('summ').value
+    var days = document.getElementById('days').value
+    
+    const radioValue = document.querySelector('input[name=rs_hour]:checked').value;
+    
+    var per_day = summ / days 
+    var per_hour = per_day / radioValue
+    
+    document.getElementById('perday').innerHTML = per_day
+    document.getElementById('perhour').innerHTML = per_hour
+  }
+  </script>
 </head>
-<body>
-
+<body onload='loadfunct()'>
+  <p><b>ставка</b><br>
+   <input id='summ' type="text" size="10">
+  </p>
+  <p><b>Установка рабочих дней</b><Br>
+   <input type="radio" name="rs_day" value="set" checked>ручная<Br>
+   <input type="radio" name="rs_day" value="auto">автомат<Br>
+  </p>
+    <p><b>часы в день</b><Br>
+   <input type="radio" name="rs_hour" value="8" checked>8<Br>
+   <input type="radio" name="rs_hour" value="12">12<Br>
+  </p>
+  <p><b>рабочих дней</b><br>
+   <input id='days' type="text" size="2">
+  </p>
+  <hr></hr>
+  <p><b><input type='button' value='расчет' onclick='onclicker()'></input></b><br>
+  <p>
+    <div style='display:inline'>за день(по формуле ставка/раб.дни)</div>
+    <div id='perday' style='display:inline;font-weight: bold;'></div>
+  </p>
+  <p>
+    <div style='display:inline'>за 1 час</div>
+    <div id='perhour' style='display:inline;font-weight: bold;'></div>
+  </p>
+  <p></p>
 </body>
 </html>
