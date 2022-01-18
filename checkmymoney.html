@@ -4,6 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title></title>
+  <style>
+  html{
+    width: 100%;
+    height: 100%;
+    /*background: linear-gradient(45deg, #30cfd0, #330867);*/
+    margin:0;
+    padding: 0;
+    }
+  input{
+    background-color:transparent;
+  }
+  p{
+    
+  }
+  </style>
   <script>
   
   function loadfunct(){
@@ -13,14 +28,18 @@
   function onclicker(radioObj){
     var summ = document.getElementById('summ').value
     var days = document.getElementById('days').value
+    var fday = document.getElementById('daysf').value
     
     const radioValue = document.querySelector('input[name=rs_hour]:checked').value;
     
     var per_day = summ / days 
     var per_hour = per_day / radioValue
+    var fact_sum = per_day * fday
     
-    document.getElementById('perday').innerHTML = per_day
-    document.getElementById('perhour').innerHTML = per_hour
+    document.getElementById('perday').innerHTML = per_day.toFixed(2);
+    document.getElementById('perhour').innerHTML = per_hour.toFixed(2);
+    document.getElementById('factday').innerHTML = fact_sum.toFixed(2);
+    
   }
   </script>
 </head>
@@ -32,15 +51,20 @@
    <input type="radio" name="rs_day" value="set" checked>ручная<Br>
    <input type="radio" name="rs_day" value="auto">автомат<Br>
   </p>
-    <p><b>часы в день</b><Br>
-   <input type="radio" name="rs_hour" value="8" checked>8<Br>
-   <input type="radio" name="rs_hour" value="12">12<Br>
-  </p>
   <p><b>рабочих дней</b><br>
    <input id='days' type="text" size="2">
   </p>
+  <p><b>дней, отработанных по факту </b><br>
+   <input id='daysf' type="text" size="2">
+  </p>
+  <p><b>часы в день</b><Br>
+   <input type="radio" name="rs_hour" value="8" checked>8<Br>
+   <input type="radio" name="rs_hour" value="12">12<Br>
+  </p>
+
   <hr></hr>
   <p><b><input type='button' value='расчет' onclick='onclicker()'></input></b><br>
+  <hr></hr>
   <p>
     <div style='display:inline'>за день(по формуле ставка/раб.дни)</div>
     <div id='perday' style='display:inline;font-weight: bold;'></div>
@@ -49,6 +73,9 @@
     <div style='display:inline'>за 1 час</div>
     <div id='perhour' style='display:inline;font-weight: bold;'></div>
   </p>
-  <p></p>
+  <p>
+    <div style='display:inline'>сумма за <p id='esum' style='display:inline'></p> дней(факт.отр.)</div>
+    <div id='factday' style='display:inline;font-weight: bold;'></div>
+  </p>
 </body>
 </html>
