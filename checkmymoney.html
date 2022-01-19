@@ -6,25 +6,27 @@
   <title></title>
   <style>
   html{
-  position:absolute;
+    position:fixed;
+    font-family: "Trebuchet MS";
     width: 100%;
     height: 100%;
     margin:0;
     padding: 0;
     text-align:center;
     background: rgba(8, 3, 48, 1)  no-repeat;
-background: -o-linear-gradient(90deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
-background: -moz-linear-gradient(90deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
-background: -webkit-linear-gradient(90deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
-background: linear-gradient(0deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#080330", endColorstr="#000000",GradientType=0 ) no-repeat;
+    background: -o-linear-gradient(90deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
+    background: -moz-linear-gradient(90deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
+    background: -webkit-linear-gradient(90deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
+    background: linear-gradient(0deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#080330", endColorstr="#000000",GradientType=0 ) no-repeat;
     }
   input{
     background-color:transparent;
   }
   p,div,input{
-    text-shadow: 0 0 4px #fff;
-    color: #f9cff2;
+    text-shadow: 0 0 4px #6b44ab;
+    color: #923fff;
+    font-size: 104%;
   }
   hr{
       box-shadow: 0 0 .2rem #fff,
@@ -35,7 +37,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#080330", end
               inset 0 0 1.3rem #bc13fe;
   }
   input {
-    font-size: 12px;
+    
     width: 300px;
     border: 1px solid #ccc;
   }
@@ -44,6 +46,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#080330", end
   }
   input:focus {
     outline: none;
+  }
+  #rightPan{
+    display:inline-block;
+    position:fixed;
+  }
+  #leftPan{
+    display:inline-block;
+    left:10px;
+    position:fixed;
   }
   </style>
   <script>
@@ -72,13 +83,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#080330", end
   </script>
 </head>
 <body onload='loadfunct()'>
-<div style='left:10px;position:absolute'>
+<div id='leftPan'>
   <p><b>ставка</b><br>
    <input id='summ' type="text" size="10">
   </p>
   <p><b>Установка рабочих дней</b><Br>
-   <input type="radio" name="rs_day" value="set" checked>ручная<Br>
-   <input type="radio" name="rs_day" value="auto">автомат<Br>
+   <div style='text-align:left; display:table; margin: auto'>
+    <input type="radio" name="rs_day" value="set" checked>ручная<Br>
+    <input type="radio" name="rs_day" value="auto">автомат<Br>
+   </div>
   </p>
   <p><b>рабочих дней</b><br>
    <input id='days' type="text" size="2">
@@ -87,8 +100,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#080330", end
    <input id='daysf' type="text" size="2">
   </p>
   <p><b>часы в день</b><Br>
-   <input type="radio" name="rs_hour" value="8" checked>8<Br>
-   <input type="radio" name="rs_hour" value="12">12<Br>
+   <div style='text-align:left; display:table; margin: auto'>
+    <input type="radio" name="rs_hour" value="8" checked>8<Br>
+    <input type="radio" name="rs_hour" value="12">12<Br>
+    </div>
   </p>
 
   <hr></hr>
@@ -107,5 +122,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#080330", end
     <div id='factday' style='display:inline;font-weight: bold;'></div>
   </p>
 </div>
+
 </body>
 </html>
