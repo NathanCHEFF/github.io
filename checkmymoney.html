@@ -6,20 +6,15 @@
   <title></title>
   <style>
   html{
-    position:fixed;
     font-family: "Trebuchet MS";
+
+  }
+  body{
     width: 100%;
     height: 100%;
     margin:0;
     padding: 0;
-    text-align:center;
-    background: rgba(8, 3, 48, 1)  no-repeat;
-    background: -o-linear-gradient(90deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
-    background: -moz-linear-gradient(90deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
-    background: -webkit-linear-gradient(90deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
-    background: linear-gradient(0deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#080330", endColorstr="#000000",GradientType=0 ) no-repeat;
-    }
+  }
   input{
     background-color:transparent;
   }
@@ -52,10 +47,44 @@
     position:fixed;
   }
   #leftPan{
+    text-align: center;
     display:inline-block;
-    left:10px;
-    position:fixed;
   }
+  .sverh{
+    display:none;
+  }
+  #backgrounder{
+    z-index:-1;
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding: 0;
+    background: rgba(8, 3, 48, 1)  no-repeat;
+    background: -o-linear-gradient(90deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
+    background: -moz-linear-gradient(90deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
+    background: -webkit-linear-gradient(90deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
+    background: linear-gradient(0deg,rgba(8, 3, 48, 1) 0%,rgba(0, 0, 0, 1) 36.25%,rgba(0, 0, 0, 1) 93%) no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#080330", endColorstr="#000000",GradientType=0 ) no-repeat;
+    
+  }
+  
+  @media (orientation: portrait) {
+  html{
+    position:static;
+  }
+  #rightPan{
+    position:static;
+    width: auto;
+  }
+  #leftPan{
+    width: 100%;
+    /* display: inline-block; */
+    /* left: 10px; */
+    position:static;
+  }
+  
+}
   </style>
   <script>
   
@@ -79,10 +108,13 @@
     document.getElementById('esum').innerHTML = fday
     document.getElementById('factday').innerHTML = fact_sum.toFixed(2);
     
+    
+    
   }
   </script>
 </head>
 <body onload='loadfunct()'>
+<div id='backgrounder'></div>
 <div id='leftPan'>
   <p><b>ставка</b><br>
    <input id='summ' type="text" size="10">
@@ -122,6 +154,13 @@
     <div id='factday' style='display:inline;font-weight: bold;'></div>
   </p>
 </div>
-
+<div id='rightPan'>
+<a href='https://zakon.rada.gov.ua/laws/show/322-08#Text' ><h3 style='text-align:center;'>КЗОТ</h3></a>
+<a href='https://zakon.rada.gov.ua/laws/show/322-08#n340'>
+<p>Стаття 50. Норма тривалості робочого часу. Нормальна тривалість робочого часу працівників не може перевищувати 40 годин на тиждень.
+</p>
+</a>
+<a href='https://zakon.rada.gov.ua/laws/show/322-08#n647' ><p>Стаття 106. Оплата роботи в надурочний час. За погодинною системою оплати праці робота в надурочний час оплачується в подвійному розмірі годинної ставки.</p></a>
+</div>
 </body>
 </html>
